@@ -10,7 +10,21 @@
             
             
             robotArm.loadLevel("exercise 10");
+        for (var totaal = 9; totaal > 0; totaal = totaal -2){
+            robotArm.grab();
+                console.log (totaal);
+                for (var rechts =0; rechts <totaal; rechts++){
+                    robotArm.moveRight();
+                }
+                robotArm.drop();
+                for (var links =0; links<totaal-1; links++){
+                    robotArm.moveLeft();
+                }
+            }            
+
             
+
+                
             
 
 
