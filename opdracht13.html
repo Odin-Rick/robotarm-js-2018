@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+            
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+            
+            
+            robotArm.randomLevel(1, 8)
+            robotArm.speed = 750
+            
+           
+            var blokjes = 'nee'
+            var tellen = '10'
+           
+            while(blokjes == 'nee'){
+                robotArm.grab();
+                color = robotArm.scan();
+                if(color == null){
+                blokjes = 'ja'
+                }else{
+                    for (arm = 1; arm<tellen; arm++){
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for (been = 0; been<9; been++){
+                        robotArm.moveLeft();
+                    }
+                    tellen--;
+                }
+            }
+            
+            
+
+            robotArm.run();
+        </script>
+    </body>
+</html>
